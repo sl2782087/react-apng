@@ -9,7 +9,7 @@ class App extends React.Component {
       <div>
         <div>
           <p>自动播放</p>
-        <div>
+        </div>
         <ApngComponent autoPlay={true} src={apic1} />
       </div>
     );
