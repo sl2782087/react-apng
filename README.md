@@ -3,9 +3,9 @@ APNG implementation on canvas as a [React.js](http://facebook.github.io/react) c
 
 ## Demo & Examples
 
-Live demo: [JedWatson.github.io/react-codemirror](http://JedWatson.github.io/react-codemirror)
+Live demo: [https://sl2782087.github.io/react-apng/](https://sl2782087.github.io/react-apng/)
 
-To build the examples locally, run:
+To run the examples locally:
 
 ```
 npm install or yarn
