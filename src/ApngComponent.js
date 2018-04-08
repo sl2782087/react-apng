@@ -5,6 +5,7 @@ import { getImgBuffer } from './ajax';
 /**
  * [ApngComponent description]
  * @param {string} className canvas' className
+ * @param {object} style canvas' style
  * @param {string} src apng's url
  * @param {number} rate animation's rate
  * @param {function} onClick bind animation's click event

@@ -6,7 +6,11 @@ const CODELIST = [
   class App extends React.Component {
     render() {
       return (
-        <ApngComponent src={apic1} />
+        <ApngComponent
+          style={{ border: '1px solid #000' }}
+          className="apng-box"
+          src={apic1} 
+        />
       );
     }
   }
