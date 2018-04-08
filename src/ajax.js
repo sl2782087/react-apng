@@ -1,5 +1,5 @@
 function getImgBuffer(url) {
-  return new Promise((resolve, reject) => {
+  return new Promise(((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.responseType = 'arraybuffer';
@@ -11,6 +11,6 @@ function getImgBuffer(url) {
       }
     };
     xhr.send();
-  });
+  }));
 }
 export { getImgBuffer };

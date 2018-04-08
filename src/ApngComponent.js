@@ -1,5 +1,3 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 import React from 'react';
 import parseAPNG from 'apng-js';
 import { getImgBuffer } from './ajax';
@@ -17,14 +15,11 @@ import { getImgBuffer } from './ajax';
 class ApngComponent extends React.Component {
 	constructor(props) {
 		super(props);
-
-		_initialiseProps.call(this);
-
 		const { src = '', rate = 1.0, autoPlay = false } = props;
 		this.state = {
 			src,
 			rate,
-			autoPlay
+			autoPlay,
 		};
 		this.apng = null;
 		this.player = null;
@@ -35,29 +30,19 @@ class ApngComponent extends React.Component {
 	componentDidMount() {
 		this.getImgData();
 	}
-
-	render() {
-		return React.createElement('canvas', _extends({ ref: 'canvasBox' }, this.props));
-	}
-}
-
-var _initialiseProps = function () {
-	this.play = () => {
+	play = () => {
 		this.player.play();
 		this.isPlay = true;
 	};
-
-	this.pause = () => {
+	pause = () => {
 		this.player.pause();
 		this.resetPlayState();
 	};
-
-	this.stop = () => {
+	stop = () => {
 		this.player.stop();
 		this.resetPlayState();
 	};
-
-	this.one = () => {
+	one = () => {
 		this.resetPlayState();
 		this.timer = [];
 		this.player.stop();
@@ -69,15 +54,13 @@ var _initialiseProps = function () {
 			}, 100 * i);
 		}
 	};
-
-	this.resetPlayState = () => {
+	resetPlayState = () => {
 		this.isPlay = false;
 		if (this.timer.length > 0) {
 			this.timer.forEach(item => clearTimeout(item));
 		}
 	};
-
-	this.getImgData = async () => {
+	getImgData = async () => {
 		const { canvasBox: canvas } = this.refs;
 		const { rate, src, autoPlay } = this.state;
 		const data = await getImgBuffer(src);
@@ -97,6 +80,9 @@ var _initialiseProps = function () {
 		this.player.playbackRate = rate;
 		autoPlay && this.player.play();
 	};
-};
+	render() {
+		return <canvas ref="canvasBox" {...this.props} />;
+	}
+}
 
 export default ApngComponent;

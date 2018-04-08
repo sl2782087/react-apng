@@ -7,8 +7,8 @@
 	"author": "wangzongyu1@gmail.com",
 	"license": "MIT",
 	"scripts": {
-		"build": "webpack",
-		"start": "webpack-dev-server --hot --inline"
+		"build": "babel src -d lib",
+		"start": "webpack-dev-server --config webpack.dev.config.js --hot --inline"
 	},
 	"dependencies": {
 		"apng-js": "^1.0.4",
@@ -17,6 +17,7 @@
 	},
 	"devDependencies": {
 		"babel": "^6.23.0",
+		"babel-cli": "^6.26.0",
 		"babel-loader": "^7.1.4",
 		"babel-plugin-transform-class-properties": "^6.24.1",
 		"babel-preset-react": "^6.24.1",
