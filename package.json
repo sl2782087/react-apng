@@ -7,8 +7,8 @@
 	"author": "wangzongyu1@gmail.com",
 	"license": "MIT",
 	"scripts": {
-		"start": "webpack",
-		"dev": "webpack-dev-server --hot --inline"
+		"build": "webpack",
+		"start": "webpack-dev-server --hot --inline"
 	},
 	"dependencies": {
 		"apng-js": "^1.0.4",

@@ -53,10 +53,10 @@ class App extends React.Component {
           <div className="control-box">
             <ApngComponent ref="apngcom" src={apic1} />
             <div className="btn-box">
-              <button onClick={this.apngPlay}>播放</button>
-              <button onClick={this.apngPlayOne}>播放一遍</button>
-              <button onClick={this.apngPause}>暂停</button>
-              <button onClick={this.apngStop}>停止</button>
+              <button onClick={this.apngPlay}>play</button>
+              <button onClick={this.apngPlayOne}>play once</button>
+              <button onClick={this.apngPause}>pause</button>
+              <button onClick={this.apngStop}>stop</button>
             </div>
           </div>
         </div>
