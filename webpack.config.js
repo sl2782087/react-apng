@@ -16,6 +16,10 @@ module.exports = {
         loader: require.resolve('babel-loader'),
       },
       {
+        test: /\.(less|css)$/,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'less-loader' }],
+      },
+      {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
         loader: require.resolve('url-loader'),
         options: {
@@ -32,5 +36,6 @@ module.exports = {
     }),
   ],
   devServer: {
+    open: true,
   },
 };

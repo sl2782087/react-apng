@@ -1,0 +1,50 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.container {
+	min-width: 900px;
+	width: 70%;
+	margin: 0 auto;
+}
+.box {
+	margin-bottom: 40px;
+	position: relative;
+	overflow: hidden;
+	min-height: 250px;
+	.title {
+		margin-top: 20px;
+	}
+	.code-box {
+		margin-top: 20px;
+		width: 50%;
+		background: #f6f8fa;
+		float: left;
+		.CodeMirror {
+			background: #f6f8fa;
+			height: auto;
+		}
+	}
+	.apng-box {
+		width: 130px;
+		position: absolute;
+		bottom: 40px;
+		left: 720px;
+	}
+	.control-box {
+		width: 200px;
+		position: absolute;
+		top: 50%;
+		left: 700px;
+		transform: translateY(-50%);
+		canvas {
+			width: 100%;
+		}
+		.btn-box {
+			margin-top: 20px;
+			button {
+				margin: 0 5px;
+			}
+		}
+	}
+}
