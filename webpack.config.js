@@ -37,5 +37,6 @@ module.exports = {
   ],
   devServer: {
     open: true,
+    openPage: '/docs'
   },
 };
