@@ -21,6 +21,14 @@ class App extends React.Component {
 	apngStop = () => {
 		this.refs.apngcom.stop();
 	};
+	apngPause2 = () => {
+		console.log(this.refs.apngcom2.isPlay)
+		if(this.refs.apngcom2.isPlay){
+			this.refs.apngcom2.pause();
+		}else {
+			this.refs.apngcom2.play();
+		}
+	};
 	render() {
 		return (
 			<div className="container">
@@ -39,16 +47,23 @@ class App extends React.Component {
 					<ApngComponent className="apng-box" autoPlay src={apic1} />
 				</div>
 				<div className="box">
-					<p className="title">animation rate 播放速度</p>
+					<p className="title">play rate 播放速度</p>
 					<div className="code-box">
 						<CodeMirror value={CODELIST[2]} options={{ mode: 'jsx' }} />
 					</div>
 					<ApngComponent className="apng-box" rate={3.5} autoPlay src={apic1} />
 				</div>
+				<div className="box">
+					<p className="title">bind event 事件绑定</p>
+					<div className="code-box">
+						<CodeMirror value={CODELIST[3]} options={{ mode: 'jsx' }} />
+					</div>
+					<ApngComponent ref="apngcom2" className="apng-box" onClick={this.apngPause2} autoPlay src={apic1} />
+				</div>
 				<div className="box height-more">
 					<p className="title">control 控制</p>
 					<div className="code-box">
-						<CodeMirror value={CODELIST[3]} options={{ mode: 'jsx' }} />
+						<CodeMirror value={CODELIST[4]} options={{ mode: 'jsx' }} />
 					</div>
 					<div className="control-box">
 						<ApngComponent ref="apngcom" src={apic1} />

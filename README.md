@@ -13,7 +13,7 @@ npm install or yarn
 npm start or yarn start
 ```
 
-Then open [`localhost:8080`](http://localhost:8080) in a browser.
+Then open [`localhost:8080`](http://localhost:8080/docs/) in a browser.
 
 ## Installation
 

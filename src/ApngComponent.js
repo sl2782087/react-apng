@@ -26,6 +26,7 @@ class ApngComponent extends React.Component {
 		this.player = null;
 		this.isOne = false;
 		this.timer = [];
+		this.isPlay = false;
 	}
 	componentDidMount() {
 		this.getImgData();
@@ -33,24 +34,31 @@ class ApngComponent extends React.Component {
 	play = () => {
 		if (!this.player.paused) return;
 		this.player.play();
+		this.isPlay = true;
 	};
 	pause = () => {
 		this.player.pause();
 		this.resetPlayState();
+		this.isPlay = false;
 	};
 	stop = () => {
 		this.player.stop();
 		this.resetPlayState();
+		this.isPlay = false;
 	};
 	one = () => {
 		this.resetPlayState();
 		this.timer = [];
 		this.player.stop();
 		const length = this.apng.frames.length || 0;
+		this.isPlay = true;
 		for (let i = 0; i < length - 1; i++) {
 			this.timer[i] = setTimeout(() => {
 				this.player.renderNextFrame();
-				if (i === length - 2) this.player.pause();
+				if (i === length - 2) {
+					this.player.pause();
+					this.isPlay = false;
+				}
 			}, 100 * i);
 		}
 	};
@@ -77,7 +85,10 @@ class ApngComponent extends React.Component {
 		const p = await this.apng.getPlayer(canvas.getContext('2d'));
 		this.player = p;
 		this.player.playbackRate = rate;
-		autoPlay && this.player.play();
+		if (autoPlay) {
+			this.player.play();
+			this.isPlay = true;
+		}
 	};
 	render() {
 		return <canvas ref="canvasBox" {...this.props} />;
