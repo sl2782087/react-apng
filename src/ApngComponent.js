@@ -89,6 +89,9 @@ class ApngComponent extends React.Component {
 			this.player.play();
 			this.isPlay = true;
 		}
+		this.player.on('end',()=>{
+			this.isPlay = false;
+		})
 	};
 	render() {
 		return <canvas ref="canvasBox" {...this.props} />;

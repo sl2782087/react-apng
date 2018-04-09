@@ -22,7 +22,6 @@ class App extends React.Component {
 		this.refs.apngcom.stop();
 	};
 	apngPause2 = () => {
-		console.log(this.refs.apngcom2.isPlay)
 		if(this.refs.apngcom2.isPlay){
 			this.refs.apngcom2.pause();
 		}else {

@@ -23,7 +23,7 @@ const CODELIST = [
     <ApngComponent rate={3.5} autoPlay={true} src={apic1} />
   `,
   `
-    //click pause 
+    //click to play and pause 
     <ApngComponent
       ref="apngcom"
       onClick={this.apngPause}

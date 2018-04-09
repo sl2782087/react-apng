@@ -13,7 +13,7 @@ npm install or yarn
 npm start or yarn start
 ```
 
-Then open [`localhost:8080`](http://localhost:8080/docs/) in a browser.
+Then open [`localhost:8080/docs/`](http://localhost:8080/docs/) in a browser.
 
 ## Installation
 
@@ -37,23 +37,52 @@ import ApngComponent from 'react-apng';
 //const ApngComponent = require('react-apng'); or this way
 import apic1 from './apic1.png';
 
-var App = React.createClass({
-	render: function() {
+class ApngComponent extends React.Component {
+	render() {
 		return <ApngComponent src={apic1} />;
-	},
-});
+	}
+}
 
 React.render(<App />, document.getElementById('app'));
 ```
 
-### Methods
+### Methods && State
+
+#### methods
 
 * `play` play the apng
 * `pause` pause the apng
 * `stop` stop the apng
 * `one` play the apng once
 
-You can interact with the CodeMirror instance using a `ref` after the `componentDidMount` lifecycle event has fired (including inside the `componentDidMount` event in a parent Component).
+#### state
+
+* `isPlay` apng play status
+
+```javascript
+class ApngComponent extends React.Component {
+	playAndPause =()=>{
+		const apngcom = this.refs.apngcom;
+		const isPlay = apngcom.isPlay;
+		if(isPlay){
+			apngcom.pause();
+		}else {
+			apngcom.play();
+		}
+	}
+	render() {
+		return (
+				<ApngComponent
+					ref="apngcom"
+					onClick={this.playAndPause}
+					src={apic1}
+				/>;
+			)
+	}
+}
+```
+
+You can interact with the component instance using a `ref` after the `componentDidMount` lifecycle event has fired (including inside the `componentDidMount` event in a parent Component).
 
 ### Properties
 
