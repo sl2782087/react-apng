@@ -6,10 +6,10 @@ import { getImgBuffer } from './ajax';
  * [ApngComponent description]
  * @param {string} className canvas' className
  * @param {object} style canvas' style
- * @param {string} src apng's url
- * @param {number} rate animation's rate
+ * @param {string} src apng's path
+ * @param {number} rate apng play rate
  * @param {function} onClick bind animation's click event
- * @param {bool} autoPlay apng autoplay
+ * @param {bool} autoPlay auto play apng
  * @extends React
  */
 
@@ -25,15 +25,14 @@ class ApngComponent extends React.Component {
 		this.apng = null;
 		this.player = null;
 		this.isOne = false;
-		this.isPlay = false;
 		this.timer = [];
 	}
 	componentDidMount() {
 		this.getImgData();
 	}
 	play = () => {
+		if (!this.player.paused) return;
 		this.player.play();
-		this.isPlay = true;
 	};
 	pause = () => {
 		this.player.pause();
@@ -56,7 +55,6 @@ class ApngComponent extends React.Component {
 		}
 	};
 	resetPlayState = () => {
-		this.isPlay = false;
 		if (this.timer.length > 0) {
 			this.timer.forEach(item => clearTimeout(item));
 		}
