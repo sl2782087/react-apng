@@ -4,9 +4,12 @@ import CodeMirror from 'react-codemirror';
 import 'codemirror/mode/jsx/jsx';
 import 'codemirror/lib/codemirror.css';
 import './style.less';
-import ApngComponent from '../lib/ApngComponent.js';
+// import ApngComponent from '../lib/ApngComponent.js';
 import apic1 from './apic1.png';
 import CODELIST from './codeList.js';
+
+const ApngComponent = require('../lib/ApngComponent.js');
+
 
 class App extends React.Component {
 	apngPlay = () => {
