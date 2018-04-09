@@ -14,6 +14,7 @@ module.exports = {
       {
         test: /\.(js|jsx|mjs)$/,
         loader: require.resolve('babel-loader'),
+        exclude: /node_modules/,
       },
       {
         test: /\.(less|css)$/,
@@ -37,6 +38,6 @@ module.exports = {
   ],
   devServer: {
     open: true,
-    openPage: '/docs'
+    openPage: '/docs',
   },
 };

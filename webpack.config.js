@@ -13,7 +13,8 @@ module.exports = {
       {
         test: /\.(js|jsx|mjs)$/,
         loader: require.resolve('babel-loader'),
+        exclude: /node_modules/,
       },
     ],
-  }
+  },
 };

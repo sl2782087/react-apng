@@ -7,7 +7,7 @@
 	"author": "wangzongyu1@gmail.com",
 	"license": "MIT",
 	"scripts": {
-		"build": "rollup -c rollup.config.js",
+		"build": "babel src -d lib",
 		"start": "webpack-dev-server --config webpack.dev.config.js --hot --inline"
 	},
 	"dependencies": {
@@ -16,10 +16,11 @@
 		"react-dom": "^16.3.1"
 	},
 	"devDependencies": {
-		"babel": "^6.23.0",
 		"babel-cli": "^6.26.0",
 		"babel-loader": "^7.1.4",
 		"babel-plugin-transform-class-properties": "^6.24.1",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-preset-env": "^1.6.1",
 		"babel-preset-react": "^6.24.1",
 		"css-loader": "^0.28.11",
 		"file-loader": "^1.1.11",
@@ -27,8 +28,6 @@
 		"less": "^3.0.1",
 		"less-loader": "^4.1.0",
 		"react-codemirror": "^1.0.0",
-		"rollup": "^0.57.1",
-		"rollup-plugin-babel": "^3.0.3",
 		"style-loader": "^0.20.3",
 		"url-loader": "^1.0.1",
 		"webpack": "^4.4.1",
