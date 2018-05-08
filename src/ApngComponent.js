@@ -59,7 +59,7 @@ class ApngComponent extends React.Component {
     let i = 0;
     const tick = now => {
       if (!this.isPlay || i > length - 2) {
-		this.isPlay = false;
+        this.isPlay = false;
         return;
       }
       if (now >= nextRenderTime) {
@@ -102,6 +102,9 @@ class ApngComponent extends React.Component {
       this.isPlay = false;
     });
   };
+  componentWillUnmount() {
+    this.player.stop();
+  }
   render() {
     return <canvas ref="canvasBox" {...this.props} />;
   }
