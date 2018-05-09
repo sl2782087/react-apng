@@ -103,7 +103,10 @@ class ApngComponent extends React.Component {
     });
   };
   componentWillUnmount() {
-    this.player && this.player.stop();
+    if (this.player) {
+      this.player.stop();
+      this.player._apng = null;
+    }
   }
   render() {
     return <canvas ref="canvasBox" {...this.props} />;

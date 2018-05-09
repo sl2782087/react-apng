@@ -1,6 +1,6 @@
 {
   "name": "react-apng",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A React component make apng to canvas for controling apng",
   "main": "lib/ApngComponent.js",
   "homepage": "https://github.com/sl2782087/react-apng.git",
