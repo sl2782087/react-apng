@@ -34,8 +34,15 @@ const CODELIST = [
   `
   import ApngComponent from 'react-apng';
   import apic1 from './apic1.png';
+  import apic2 from './apic2.png';
+  import png from './png.png' //静态图片
+  
+  const imgList = [apic1, png, apic2];
 
   class App extends React.Component {
+    state = {
+      img: imgList[0]
+    } ;
     apngPlay=()=>{
       this.refs.apngcom.play();
     }
@@ -48,6 +55,17 @@ const CODELIST = [
     apngStop=()=>{
       this.refs.apngcom.stop();
     }
+    changeImg = () => {
+      if (this.index > 1) {
+          this.index = 0;
+      } else {
+          this.index += 1;
+    }
+      const img = imgList[this.index];
+      this.setState({
+          img
+      });
+    };
     render() {
       return (
         <div>
@@ -57,6 +75,7 @@ const CODELIST = [
             <button onClick={this.apngPlayOne}>play once</button>
             <button onClick={this.apngPause}>pause</button>
             <button onClick={this.apngStop}>stop</button>
+            <button onClick={this.changeImg}>change</button>
           </div>
         </div>
       );
