@@ -12,6 +12,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src -d lib",
+    "build_demo": "webpack --config webpack.dev.config.js",
     "start": "webpack-dev-server --config webpack.dev.config.js --hot --inline"
   },
   "dependencies": {
