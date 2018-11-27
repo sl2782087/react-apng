@@ -1,5 +1,5 @@
 import React from 'react';
-import parseAPNG from 'apng-js';
+import parseAPNG from './apngJs/parser';
 import { getImgBuffer } from './ajax';
 
 /**
@@ -28,6 +28,7 @@ class ApngComponent extends React.Component {
         this.isOne = false;
         this.timer = [];
         this.isPlay = false;
+        this.hasPerformance = typeof performance !== 'undefined';
     }
     componentDidMount() {
         this.getImgData();
@@ -76,14 +77,16 @@ class ApngComponent extends React.Component {
         this.player.stop();
         const length = this.apng.frames.length || 0;
         this.isPlay = true;
+        let performance = this.hasPerformance ? performance || window.performance : Date;  // supports ios8 Safari
         let nextRenderTime = performance.now() + 40; //1000/24 每秒24帧
         let i = 0;
         const tick = now => {
+            const _now = this.hasPerformance? now : Date.now(); // supports ios8 Safari
             if (!this.isPlay || i > length - 2) {
                 this.isPlay = false;
                 return;
             }
-            if (now >= nextRenderTime) {
+            if (_now >= nextRenderTime) {
                 this.player.renderNextFrame();
                 i++;
                 nextRenderTime = performance.now() + 40;
