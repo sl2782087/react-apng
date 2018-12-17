@@ -114,7 +114,7 @@ class App extends React.Component {
                         />
                     </div>
                     <div className="control-box">
-                        <ApngComponent ref="apngcom" src={this.state.img} />
+                        <ApngComponent ref="apngcom" rate={1} src={this.state.img} />
                         <div className="btn-box">
                             <button onClick={this.apngPlay}>play</button>
                             <button onClick={this.apngPlayOne}>

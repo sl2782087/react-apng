@@ -69,7 +69,7 @@ const CODELIST = [
     render() {
       return (
         <div>
-          <ApngComponent ref="apngcom" src={apic1} />
+          <ApngComponent ref="apngcom" rate={1} src={this.state.img} />
           <div>
             <button onClick={this.apngPlay}>play</button>
             <button onClick={this.apngPlayOne}>play once</button>

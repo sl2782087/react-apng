@@ -29,6 +29,7 @@ class ApngComponent extends React.Component {
         this.timer = [];
         this.isPlay = false;
         this.hasPerformance = typeof performance !== 'undefined';
+        this.speed = 1000 / (rate * 24); //1000/24 每秒24帧
     }
     componentDidMount() {
         this.getImgData();
@@ -77,11 +78,13 @@ class ApngComponent extends React.Component {
         this.player.stop();
         const length = this.apng.frames.length || 0;
         this.isPlay = true;
-        let performance = this.hasPerformance ? performance || window.performance : Date;  // supports ios8 Safari
-        let nextRenderTime = performance.now() + 40; //1000/24 每秒24帧
+        let performance = this.hasPerformance
+            ? performance || window.performance
+            : Date; // supports ios8 Safari
+        let nextRenderTime = performance.now() + this.speed;
         let i = 0;
         const tick = now => {
-            const _now = this.hasPerformance? now : Date.now(); // supports ios8 Safari
+            const _now = this.hasPerformance ? now : Date.now(); // supports ios8 Safari
             if (!this.isPlay || i > length - 2) {
                 this.isPlay = false;
                 return;
@@ -89,7 +92,7 @@ class ApngComponent extends React.Component {
             if (_now >= nextRenderTime) {
                 this.player.renderNextFrame();
                 i++;
-                nextRenderTime = performance.now() + 40;
+                nextRenderTime = performance.now() + this.speed;
             }
             requestAnimationFrame(tick);
         };
